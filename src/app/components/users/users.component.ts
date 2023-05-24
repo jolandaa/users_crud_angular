@@ -5,6 +5,7 @@ import {UsersModel} from "../../models/users.model";
 import {MatDialog} from "@angular/material/dialog";
 import {AddUserComponent} from "../add-user/add-user.component";
 import {EditUserComponent} from "../edit-user/edit-user.component";
+import {ConfirmModalComponent} from "../confirm-modal/confirm-modal.component";
 
 @Component({
   selector: 'app-users',
@@ -57,7 +58,21 @@ export class UsersComponent implements OnInit {
     })
   }
 
-  deleteUserConfirmation() {
+  deleteUserConfirmation(user: UsersModel) {
+    const dialogRef = this.dialog.open(ConfirmModalComponent, {
+      width: '400px'
+    });
 
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.appEventService.setAppLoadingState(true);
+        this.usersService.deleteUser(user.id).subscribe(res => {
+          this.getUsersList();
+          this.appEventService.showSuccessToast('You have deleted this user!');
+        }, error => {
+          this.appEventService.showFailureToast('Something went wrong');
+        }).add(() => this.appEventService.setAppLoadingState(false));
+      }
+    })
   }
 }

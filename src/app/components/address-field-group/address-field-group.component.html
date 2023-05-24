@@ -8,7 +8,7 @@
       </label>
     </div>
   </div>
-  <input type="text" class="form-control" id="address" [formControl]="Street">
+  <input type="text" #addresstext class="form-control" id="address" [formControl]="Street">
   <div class="input-error">
     <mat-error *ngIf="Street.invalid"></mat-error>
   </div>

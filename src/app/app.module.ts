@@ -18,6 +18,7 @@ import {MatTableModule} from "@angular/material/table";
 import {MatDialogModule} from "@angular/material/dialog";
 import {HttpClientModule} from "@angular/common/http";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     UsersComponent,
     AddUserComponent,
     EditUserComponent,
-    AddressFieldGroupComponent
+    AddressFieldGroupComponent,
+    ConfirmModalComponent
   ],
   imports: [
     BrowserModule,

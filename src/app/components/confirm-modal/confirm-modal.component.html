@@ -1,0 +1,22 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h1 class="modal-title fs-5">Confirmation</h1>
+    <button type="button" class="btn-close" [mat-dialog-close]="false"></button>
+  </div>
+  <div class="modal-body">
+      <span class="p-confirm-dialog-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000" version="1.1" viewBox="0 0 385.658 385.658" enable-background="new 0 0 385.658 385.658">
+          <g>
+            <path d="M0,379.633h385.658L192.829,6.026L0,379.633z M65.658,339.633L192.829,93.24L320,339.633H65.658z"/>
+            <rect width="29.48" x="178.089" y="286.412" height="33.221"/>
+            <rect width="29.48" x="178.089" y="161.893" height="99"/>
+          </g>
+        </svg>
+      </span>
+      <span class="p-confirm-dialog-message">Are you sure you want to delete this user?</span></div>
+  <div class="modal-footer">
+    <button mat-button class="btn btn-primary m-0 no-backg" [mat-dialog-close]="false">No</button>
+
+    <button mat-button class="btn btn-primary m-0" [mat-dialog-close]="true">Yes</button>
+  </div>
+</div>
