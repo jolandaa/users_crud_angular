@@ -1,1 +1,54 @@
-<p>add-user works!</p>
+<div class="modal-content">
+  <div class="modal-header">
+    <h1 class="modal-title fs-5">New user info</h1>
+    <button type="button" class="btn-close" [mat-dialog-close]="false"></button>
+  </div>
+  <div class="modal-body">
+    <form class="d-flex flex-wrap gap-3 p-fluid text-left" [formGroup]="userFormGroup">
+      <div style="width: 47%">
+        <div class="mb-2">
+          <label for="fullName" class="form-label">Full Name</label>
+          <input type="text" class="form-control" id="fullName" [formControl]="Name">
+          <div class="input-error">
+            <mat-error *ngIf="hasErrors && Name.invalid">Please fill in full name</mat-error>
+          </div>
+        </div>
+        <div class="mb-2">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" id="username" [formControl]="Username">
+          <div class="input-error">
+            <mat-error *ngIf="hasErrors && Username.invalid">Please fill in user name</mat-error>
+          </div>
+        </div>
+        <div class="mb-2">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" [formControl]="Email">
+          <div class="input-error">
+            <mat-error *ngIf="hasErrors && Email.invalid">
+              <span *ngIf="Email.errors && Email.errors['required']">Please fill in email</span>
+              <span *ngIf="Email.errors && Email.errors['email']">Please fill in email with correct format.</span>
+            </mat-error>
+          </div>
+        </div>
+        <div class="mb-2">
+          <label for="phone" class="form-label">Phone</label>
+          <input class="form-control" id="phone" [formControl]="Phone">
+          <div class="input-error">
+            <mat-error *ngIf="hasErrors && Phone.invalid">Please fill in phone</mat-error>
+          </div>
+        </div>
+      </div>
+      <div style="width: 50%">
+        <app-address-field-group [Street]="Street"
+                                 [City]="City"
+                                 [ZipCode]="ZipCode"
+                                 [Latitude]="Latitude"
+                                 [Longitude]="Longitude">
+        </app-address-field-group>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button mat-button class="btn btn-primary m-0" (click)="saveUser()">Save</button>
+  </div>
+</div>
