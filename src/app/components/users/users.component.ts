@@ -37,6 +37,7 @@ export class UsersComponent implements OnInit {
   openCreateUserModal() {
     const dialogRef = this.dialog.open(AddUserComponent, {
       width: '590px',
+      disableClose: true
     });
     dialogRef.afterClosed().subscribe(res => {
       if (res) {
@@ -49,6 +50,7 @@ export class UsersComponent implements OnInit {
     const dialogRef = this.dialog.open(EditUserComponent, {
       data: user,
       width: '590px',
+      disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(res => {
@@ -60,7 +62,8 @@ export class UsersComponent implements OnInit {
 
   deleteUserConfirmation(user: UsersModel) {
     const dialogRef = this.dialog.open(ConfirmModalComponent, {
-      width: '400px'
+      width: '400px',
+      disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(res => {
